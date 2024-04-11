@@ -37,7 +37,7 @@ public class UserController {
 
 		if (authUser != null) {// 로그인에 성공하면
 			// 토큰발급 응답문서의 헤데에 실어 보낸다
-			JwtUtil.createTokenAndSetHeader(response, "" + authUser.getNo());
+			JwtUtil.createTokenAndSetHeader(response, "" + authUser.getNo());//Static
 			return JsonResult.success(authUser);
 
 		}else {
