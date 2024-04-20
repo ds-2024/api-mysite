@@ -29,7 +29,8 @@ public class BoardController {
 	    } else {
 	        return JsonResult.fail("게시글 등록에 실패했습니다.");
 	    }
-	} 
+	}
+	
 
 }	
 

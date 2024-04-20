@@ -9,9 +9,29 @@
           	insert into board 
 			values (null, #{title}, #{content})
        ]]>
+    </insert>   
+    
+    <!-- 게시글 삭제하기 -->
+   	<insert id="delete" parameterType="com.javaex.vo.BoardVo">
+      <![CDATA[ 
+         delete from board
+         where no=#{no}
+      ]]>
+   	</insert>
+   
+   	<!-- 게시글 수정하기 -->
+   	<update id="update" parameterType="com.javaex.vo.BoardVo">
+		<![CDATA[
+		update board
+		set
+        	title = #{title},
+        	content = #{content}
+		where no = #{no}
+		]]>
+	</update>   
 
 
-	</insert>
+	
 
 
 </mapper>
