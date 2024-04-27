@@ -29,7 +29,14 @@ public class BoardDao {
 			int count = sqlSession.delete("board.delete", boardVo);
 			return count;
 		}
-	
+	//수정시킬 회원 1명 정보 가져오기	
+		public BoardVo boardSelectOneByNo(int no) {
+
+			System.out.println("BoardDao.boardSelectOneByNo()");
+
+			BoardVo boardVo = sqlSession.selectOne("board.selectOneByNo", no);
+			return boardVo;
+		}
 	
 
 }

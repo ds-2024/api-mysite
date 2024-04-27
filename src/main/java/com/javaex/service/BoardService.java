@@ -27,4 +27,12 @@ public class BoardService {
 		int count = boardDao.boardDelete(boardVo);
 		return count;
 	}
+	
+	//수정시킬 회원 1명 정보 가져오기
+	public BoardVo exeModifyForm(int no) {
+		System.out.println("BoardService.exeModifyForm()");
+
+		BoardVo boardVo = boardDao.boardSelectOneByNo(no);
+		return boardVo;
+	}
 }
