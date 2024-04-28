@@ -3,43 +3,44 @@ package com.javaex.vo;
 public class BoardVo {
 	
 	private int no;
+	private String writer;
 	private String title;
 	private String content;
-	private int hit;
 	private String regDate;
+	private int views;
 	private int userNo;
 	
+	//생성자
 	public BoardVo() {
 		
 	}
-	
-	
 
-	public BoardVo(int no, String title, String content) {
-		
+	public BoardVo(int no, String writer, String title, String content, String regDate, int views, int userNo) {
+		super();
 		this.no = no;
+		this.writer = writer;
 		this.title = title;
 		this.content = content;
-	}
-
-
-
-	public BoardVo(int no, String title, String content, int hit, String regDate, int userNo) {
-		
-		this.no = no;
-		this.title = title;
-		this.content = content;
-		this.hit = hit;
 		this.regDate = regDate;
+		this.views = views;
 		this.userNo = userNo;
 	}
 
+	//g/s
 	public int getNo() {
 		return no;
 	}
 
 	public void setNo(int no) {
 		this.no = no;
+	}
+
+	public String getWriter() {
+		return writer;
+	}
+
+	public void setWriter(String writer) {
+		this.writer = writer;
 	}
 
 	public String getTitle() {
@@ -58,20 +59,20 @@ public class BoardVo {
 		this.content = content;
 	}
 
-	public int getHit() {
-		return hit;
-	}
-
-	public void setHit(int hit) {
-		this.hit = hit;
-	}
-
 	public String getRegDate() {
 		return regDate;
 	}
 
 	public void setRegDate(String regDate) {
 		this.regDate = regDate;
+	}
+
+	public int getViews() {
+		return views;
+	}
+
+	public void setViews(int views) {
+		this.views = views;
 	}
 
 	public int getUserNo() {
@@ -84,11 +85,16 @@ public class BoardVo {
 
 	@Override
 	public String toString() {
-		return "BoardVo [no=" + no + ", title=" + title + ", content=" + content + ", hit=" + hit + ", regDate="
-				+ regDate + ", userNo=" + userNo + "]";
+		return "BoardVo [no=" + no + ", writer=" + writer + ", title=" + title + ", content=" + content + ", regDate="
+				+ regDate + ", views=" + views + ", userNo=" + userNo + "]";
 	}
 	
 	
+	
+	
+	
+	
+
 	
 	
 

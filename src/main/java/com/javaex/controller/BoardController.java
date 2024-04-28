@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -56,7 +57,7 @@ public class BoardController {
 	//수정시킬 데이터 가져오기(해당 회원 1명 정보 가져오기)
 	@GetMapping("/api/board/modify")
 	public JsonResult modifyform(HttpServletRequest request) {
-		System.out.println("UserController.modifyform()");
+		System.out.println("BoardController.modifyform()");
 		
 		/*
 		//토큰내놔
@@ -90,6 +91,28 @@ public class BoardController {
 			return JsonResult.fail("토큰X, 로그인실패, 변조");
 		}
 	}
+	
+	//회원정보 수정
+		@PutMapping("/api/board/modify")
+		public JsonResult modify(@RequestBody BoardVo boardVo, HttpServletRequest request) {
+			System.out.println("BoardController.modify()");
+			
+			System.out.println(boardVo);
+			
+			int no =JwtUtil.getNoFromHeader(request);
+			if(no != -1) {//정상
+				//db에 수정시킨다
+				 boardService.exeModify(boardVo);
+				 boardVo.getNo();
+				return JsonResult.success(boardVo.getNo());
+						
+				
+			}else {
+				return JsonResult.fail("로그인하지 않음");
+			}
+			
+			
+		}
 	
 
 }

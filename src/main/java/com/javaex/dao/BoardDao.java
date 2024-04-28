@@ -37,6 +37,15 @@ public class BoardDao {
 			BoardVo boardVo = sqlSession.selectOne("board.selectOneByNo", no);
 			return boardVo;
 		}
+		//회원정보수정
+		public int boardUpdate(BoardVo boardVo) {
+			
+			System.out.println("BoardDao.boardUpdate()");
+			int count = sqlSession.update("board.update", boardVo);
+			
+			return count;
+		}
+	
 	
 
 }

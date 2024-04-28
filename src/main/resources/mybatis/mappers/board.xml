@@ -23,11 +23,11 @@
 	<select id="selectOneByNo" parameterType="int" resultType="com.javaex.vo.BoardVo">
 		<![CDATA[ 
 			select 	no, 
-					id,
-					password,
-					name,
+					writer,
 					title,
-					content
+					content,
+					reg_date as regDate,
+					views
 			from board
 			where no = #{no}
 		]]>
